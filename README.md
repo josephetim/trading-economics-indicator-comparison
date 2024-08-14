@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# Country Economic Indicators Comparison
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React application allows users to compare key economic indicators between different countries. It fetches data from the Trading Economics API and displays the selected indicators in a comparison table. Users can select multiple countries to compare and view their respective economic statistics.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Country Selection**: Users can select countries from a dropdown menu to compare their economic indicators.
+- **Dynamic Data Fetching**: Economic data is fetched dynamically from the Trading Economics API when a country is selected.
+- **Custom Calculations**: The application includes a custom calculation for the "Government Budget Deficit/Surplus," which is computed as the difference between "Government Revenues" and "Government Spending."
+- **Unit Handling**: The app displays units for each economic indicator, including handling special cases like percentages.
+- **Country Removal**: Users can remove a selected country from the comparison table.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (>= 14.x)
+- npm or yarn
 
-### `npm test`
+### Clone the Repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/your-username/country-economic-comparison.git
+cd country-economic-comparison
 
-### `npm run build`
+```
+### Installing Dependencies 
+Using NPM
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Using Yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+yarn install
+```
 
-### `npm run eject`
+### Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Using NPM
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Using Yarn
+``` bash
+yarn start
+```
+The application will be available at http://localhost:3000. (If the port is not already in use.)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Select Countries:** Choose one or more countries from the dropdown menu.
+**View Comparison:** The selected countries' economic indicators will be displayed in a table.
+**Remove Countries:** Click the "Remove" button next to a country to remove it from the comparison.
 
-## Learn More
+### Code Structure
+**src/:** Contains the main application code.
+**services/:** Contains the API service for fetching economic data from the Trading Economics API.
+**components/:** Contains React components used in the application.
+**App.js:** The main application component.
+**App.css:** Styling for the application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API Integration
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The application uses the Trading Economics API to fetch economic data. Ensure you have an API key and replace the placeholder API key in tradingEconomicsService.js with your actual key:
 
-### Code Splitting
+```javascript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const API_KEY = 'your_api_key_here';
+```
 
-### Analyzing the Bundle Size
+## Custom Calculation: Government Budget Deficit/Surplus
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The "Government Budget Deficit/Surplus" indicator is computed as:
 
-### Making a Progressive Web App
+```
+Government Budget Deficit/Surplus = Government Revenues - Government Spending
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This calculation is performed within the fetchData function in ComparisonTable.js.
 
-### Advanced Configuration
+## Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Additional Indicators:** Add more economic indicators for comparison.
+**Improved UI/UX:** Enhance the user interface for better usability.
+**Persistent Selection:** Implement persistent storage for selected countries using local storage or a database.
 
-### Deployment
+# License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Contributing
+Contributions are welcome! Please feel free to submit a Pull Request or open an issue.
 
-### `npm run build` fails to minify
+# Contact
+For any questions or feedback, please contact josephetim211@gmail.com.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
